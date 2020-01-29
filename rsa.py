@@ -1,24 +1,3 @@
-import random
-
-def ver_primo(x):
-    if(x == 1):
-        return True
-    else:
-        return False
-
-def limpar_terminal():
-    for i in range(1, 40):
-        print()
-
-def calcular_totiente():
-    return 1
-
-def verificar_coprimos(x):
-    if(x == 1):
-        return True
-    else:
-        return False
-
 def main():
     limpar_terminal()
     print("  ####################################################")
