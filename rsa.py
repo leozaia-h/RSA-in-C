@@ -38,7 +38,7 @@ def main():
     print("  ##        ENCRIPTAÇÃO E DESENCRIPTAÇÃO RSA        ##")
     print("  ####################################################")
     print("  ##        Escolha uma das opções á seguir:        ##")
-    print("  ##------------------------------------------------##")
+    print("  ##                                                ##")
     print("  ## 1: GERAR CHAVE PUBLICA                         ##")
     print("  ## 2: ENCRIPTAR                                   ##")
     print("  ## 3: DESENCRIPTAR                                ##")
@@ -64,15 +64,38 @@ def main():
                     print("  ##  Digite novamente:                             ##")
                     p = int(input("  ##  Digite (p):"))
                     q = int(input("  ##  Digite (q):"))
-
         n = p * q
-
-        totiente = qntd_totiente(p, q)
-
-        e = primos_entre_si(n)
-        d = achar_d(e, totiente)
-
-        print(criptografar(texto, e, n))
-        print("cahve publica: {}".format(e))
-        print("chave privada: {}".format(d))
+        totiente = calcular_totiente()
+        print("  ####################################################")
+        limpar_terminal()
+        print("  ####################################################")
+        print("  ##     INSIRA O e PARA GERAR A CHAVE PÚBLICA      ##")
+        print("  ####################################################")
+        e = int(input("  ## (e): "))
+        if(verificar_coprimos(e) != 1):
+            while(verificar_coprimos(e) != 1):
+                limpar_terminal()
+                print("  ####################################################")
+                print("  ##  O número digitado não é coprimo ao totiente!  ##")
+                print("  ####################################################")
+                print("  ##  Digite novamente:                             ##")
+                e = int(input("  ## (e): "))
+        #CHAVE PUBLICA SAI AQUI (ARQUIVO)
+    elif(escolha == 2):
+        limpar_terminal()
+        print("  ####################################################")
+        print("  ##     DIGITE A SUA MENSAGEM PARA ENCRIPTA-LA     ##")
+        print("  ####################################################")
+        texto = input("  ## > ")
+        limpar_terminal()
+        print("  ####################################################")
+        print("  ##          PRECISAMOS DA CHAVE PUBLICA!          ##")
+        print("  ####################################################")
+        n = int(input("  ## (n): "))
+        e = int(input("  ## (e): "))
+        texto_encriptado = encriptar()
+        #TEXTO ENCRIPTADO AQUI (ARQUIVO)
+    elif(escolha == 3):
+        
+            
 main()
