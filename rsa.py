@@ -31,8 +31,9 @@ def MDC(p, q):
         return p
     else:
         return MDC(q, p%q)
-
+    
 def main():
+    limpar_terminal()
     print("  ####################################################")
     print("  ##        ENCRIPTAÇÃO E DESENCRIPTAÇÃO RSA        ##")
     print("  ####################################################")
@@ -43,20 +44,28 @@ def main():
     print("  ## 3: DESENCRIPTAR                                ##")
     print("  ## 4: SAIR                                        ##")
     print("  ####################################################")
-    
-    escolha = int(input())
+    escolha = int(input("  ## >Digite sua escolha: "))
+    print("  ####################################################")
+    limpar_terminal()
 
     if(escolha == 1):
-        print("Deseja escolher os numeros primos?")
-        print("1: SIM                       2:NÃO")
-        escolha_primos = int(input())
+        print("  ####################################################")
+        print("  ##              Gerando chave pública             ##")
+        print("  ####################################################")
+        print("  ## Digite os números primos:                      ##")
+        p = int(input("  ## (p):"))
+        q = int(input("  ## (q):"))
+        if(ver_primo(p) == False or ver_primo(q) == False):
+                while(ver_primo(p) != True and ver_primo(q) != True):
+                    limpar_terminal()
+                    print("  ####################################################")
+                    print("  ##  Um ou mais números digitados não são primos!  ##")
+                    print("  ####################################################")
+                    print("  ##  Digite novamente:                             ##")
+                    p = int(input("  ##  Digite (p):"))
+                    q = int(input("  ##  Digite (q):"))
 
-        if(escolha_primos == 1):
-            p = int(input("Primeiro número primo(p): "))
-            q = int(input("Segundo número primo(q): "))
-            texto = 9#################
-
-            n = p * q
+        n = p * q
 
         totiente = qntd_totiente(p, q)
 
@@ -67,4 +76,3 @@ def main():
         print("cahve publica: {}".format(e))
         print("chave privada: {}".format(d))
 main()
-\\Gabriel é gay
