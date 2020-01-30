@@ -1,14 +1,9 @@
 mport os
-def chave_pub_1(x):
+def chave_pub(x):
     arquivo = open('chave_publica_1.txt' , 'w')
     arquivo.write("{}\n".format(x))
     arquivo.close()
-
-def chave_pub_2(y):
-    arquivo = open('chave_publica_2.txt', 'w')
-    arquivo.write("{}\n".format(y))
-    arquivo.close()
-
+    
 def msg_criptografada(x):
     arquivo = open('msg_criptografada.txt', 'w')
     arquivo.write("{}\n".format(x))
@@ -151,9 +146,8 @@ def main():
 
                 e = int(input("  ## (e): "))
             print('Chave pública: {} {}'.format(n,e))
-
-            chave_pub_1(n)
-            chave_pub_2(e)
+            chavePublica = str(N) + " " + str(e)
+            chave_pub(chavePublica)
             #CHAVE PUBLICA SAI AQUI (ARQUIVO)
         elif(escolha == 2):
             limpar_terminal()
