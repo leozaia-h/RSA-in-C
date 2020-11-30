@@ -48,14 +48,14 @@ def inverso(e, phi):
     inv = indices[tamanho-2]
     return inv
 
-def fastModularExponentiation(m, e, n):
+def exponenciacao_modular_rapida(m, e, n):
     if(e == 0):
         return 1
     elif(e%2 == 0):
-        aux = fastModularExponentiation(m, e/2, n)
+        aux = exponenciacao_modular_rapida(m, e/2, n)
         return (aux**2)%n
     else:
-        return(m%n*fastModularExponentiation(m, e-1, n))%n
+        return(m%n*exponenciacao_modular_rapida(m, e-1, n))%n
 
 def limpar_terminal():
     if (os.name == "nt"):
@@ -114,7 +114,7 @@ def criptografar(c,e,n):
     for i in range(0,29):
         if(c == array[i]):
             aux = i
-    M = fastModularExponentiation(aux, e, n)
+    M = exponenciacao_modular_rapida(aux, e, n)
     return M
 
 def desencriptar(nome_arquivo, d, n):
@@ -131,7 +131,7 @@ def desencriptar(nome_arquivo, d, n):
             break
         c = msg[i]
         c = int(c)
-        c = fastModularExponentiation(c, d, n)
+        c = exponenciacao_modular_rapida(c, d, n)
         palavras += array[c]
         
     msg_descriptografada(palavras)
