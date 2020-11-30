@@ -1,6 +1,6 @@
 import os
 import math
-from Funcoes.funcionalidades import calcular_phi, chave_pub, criptografar, desencriptar, fastModularExponentiation, inverso, limpar_arquivo, limpar_terminal, MDC, msg_criptografada, msg_descriptografada, primos_entre_si, verificar_primos
+from Funcoes.funcionalidades import *
 
 def main():
     limpar_terminal()
