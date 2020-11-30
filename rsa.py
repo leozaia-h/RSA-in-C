@@ -3,6 +3,7 @@ import math
 
 def inverso(e, phi):
 
+
     phi2 = phi
     coeficientes = [] 
     coeficientes_invertidos = []
